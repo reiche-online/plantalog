@@ -1,0 +1,132 @@
+<div class="row">
+    <div class="col-md-12 col-xs-12">
+        <div class="detail-block no-height">
+            <div class="col-md-3 col-xs-0">
+                <img ng-src="{{plant.imgsrc}}" title="{{plant.name}}">
+            </div>
+            <div class="col-md-9 col-xs-12">
+                <h1>{{plant.name}}</h1>
+                <p class="desc-box" ng-bind-html="plant.desc"></p>
+            </div>
+            <div class="clear"></div>
+        </div>
+    </div>
+    <div class="col-md-4 col-xs-12 onloadhide" style="display:none;">
+        <div class="detail-block">
+            <ul class="attr">
+                <li ng-if="plant.freeze == 1" class="icon">
+                    <img title="Lebensdauer: mehrjährig" src="img/icons/freeze.jpg" >
+                    <strong>Lebensdauer: </strong>mehrjährig
+                </li>
+                <li ng-if="plant.freeze == 0" class="icon">
+                    <img title="Lebensdauer: mehrjährig" src="img/icons/no-freeze.jpg" >
+                    <strong>Lebensdauer: </strong>einjährig
+                </li>
+                <li ng-if="plant.sun == 0" class="icon">
+                    <img title="Standort: Schatten" src="img/icons/sun0.jpg" >
+                    <strong>Standort: </strong>Schatten
+                </li>
+                <li ng-if="plant.sun == 1" class="icon">
+                    <img title="Standort: Halbschatten" src="img/icons/sun1.jpg" >
+                    <strong>Standort: </strong>Halbschatten
+                </li>
+                <li ng-if="plant.sun == 2" class="icon">
+                    <img title="Standort: Sonne" src="img/icons/sun2.jpg" >
+                    <strong>Standort: </strong>Sonne
+                </li>
+                <li ng-if="plant.difficulty == 0" class="icon">
+                    <img title="Pflegeaufwand: keiner" src="img/icons/dif0.jpg" >
+                    <strong>Pflegeaufwand: </strong>keiner
+                </li>
+                <li ng-if="plant.difficulty == 1" class="icon">
+                    <img title="Pflegeaufwand: sehr wenig" src="img/icons/dif1.jpg" >
+                    <strong>Pflegeaufwand: </strong>sehr wenig
+                </li>
+                <li ng-if="plant.difficulty == 2" class="icon">
+                    <img title="Pflegeaufwand: wenig" src="img/icons/dif2.jpg" >
+                    <strong>Pflegeaufwand: </strong>wenig
+                </li>
+                <li ng-if="plant.difficulty == 3" class="icon">
+                    <img title="Pflegeaufwand: normal" src="img/icons/dif3.jpg" >
+                    <strong>Pflegeaufwand: </strong>normal
+                </li>
+                <li ng-if="plant.difficulty == 4" class="icon">
+                    <img title="Pflegeaufwand: aufwendig" src="img/icons/dif4.jpg" >
+                    <strong>Pflegeaufwand: </strong>aufwendig
+                </li>
+                <li ng-if="plant.difficulty == 5" class="icon">
+                    <img title="Pflegeaufwand: sehr aufwendig" src="img/icons/dif5.jpg" >
+                    <strong>Pflegeaufwand: </strong>sehr aufwendig
+                </li>
+                <li ng-if="plant.water == 1" class="icon">
+                    <img title="Wasserbedarf: niedrig" src="img/icons/water1.jpg" >
+                    <strong>Wasserbedarf: </strong>niedrig
+                </li>
+                <li ng-if="plant.water == 2" class="icon">
+                    <img title="Wasserbedarf: mittel" src="img/icons/water2.jpg" >
+                    <strong>Wasserbedarf: </strong>mittel
+                </li>
+                <li ng-if="plant.water == 3" class="icon">
+                    <img title="Wasserbedarf: hoch" src="img/icons/water3.jpg" >
+                    <strong>Wasserbedarf: </strong>hoch
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="col-md-4 col-xs-12 onloadhide" style="display:none;">
+        <div class="detail-block">
+            <ul class="attr values">
+                <li>
+                    <strong>Brennwert: </strong><span>{{plant.energy}} kJ</span>
+                </li>
+                <li>
+                    <strong>Kalorien: </strong><span>{{plant.calories}} kcal</span>
+                </li>
+                <li>
+                    <strong>Protein: </strong><span>{{plant.protein}} g</span>
+                </li>
+                <li>
+                    <strong>Kohlenhydrate: </strong><span>{{plant.carbs}} g</span>
+                </li>
+                <li>
+                    <strong>Fett: </strong><span>{{plant.fat}} g</span>
+                </li>
+                <li>
+                    <strong>Vitamine & Co: </strong><span>{{plant.vitamins}}</span>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="col-md-4 col-xs-12 onloadhide" style="display:none;">
+        <div class="detail-block">
+            <h5>Anbautipps</h5>
+            <ul class="attr values">
+                <li ng-repeat="tipp in plant.tipps" ><strong>{{tipp.name}}</strong><span>{{tipp.text}}</span></li>
+
+            </ul>
+        </div>
+    </div>
+    <div class="col-md-4 col-xs-12 onloadhide" style="display:none;">
+        <div class="detail-block">
+            <h5>Rezept-Ideen</h5>
+            <div style="height:180px; overflow: auto;">
+                <a href="{{recipe.link}}" class="list-group-item" target="_blank" ng-repeat="recipe in plant.recipes" title="{{recipe.name}}" >
+                    {{recipe.name}}
+                </a>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4 col-xs-12 onloadhide" style="display:none;">
+        <div class="detail-block illness-list">
+            <h5>Pflanzenkrankheiten</h5>
+            <ul class="attr illness">
+                <li ng-repeat="illness in plant.illnesss" ng-click="getIllness(illness.id)" title="Details zu {{illness.name}}" ><img title="{{illness.name}}" src="img/icons/illness.jpg" >{{illness.name}}</li>
+            </ul>
+        </div>
+        <div class="detail-block illness-detail">
+            <button class="close" ng-click="getIllnessList()" >&times;</button>
+            <h5>{{illness.name}}</h5>
+            <p ng-bind-html="illness.desc"></p>
+        </div>
+    </div>
+</div>
