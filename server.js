@@ -6,20 +6,20 @@ var express =  require('express'),
 
 
 //rewrites
-app.use('/js', express.static(__dirname + '/client/frontend/js'));
-app.use('/css', express.static(__dirname + '/client/frontend/css'));
-app.use('/img', express.static(__dirname + '/client/frontend/img'));
-app.use('/views', express.static(__dirname + '/client/frontend/views'));
+app.use('/js', express.static(__dirname + '/client/js'));
+app.use('/css', express.static(__dirname + '/client/css'));
+app.use('/img', express.static(__dirname + '/client/img'));
+app.use('/views', express.static(__dirname + '/client/views'));
 
 
 //routing
 
 app.get('/', function(req,res) {
-   res.sendfile(__dirname + '/client/frontend/index.html');
+   res.sendfile(__dirname + '/client/index.html');
 });
 
 app.get('/login', function(req,res) {
-   res.sendfile(__dirname + '/client/frontend/login.html');
+   res.sendfile(__dirname + '/client/login.html');
 });
 
 app.listen(5000, function() {

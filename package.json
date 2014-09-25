@@ -1,0 +1,11 @@
+{
+  "name": "plantalog",
+  "version": "0.0.1",
+  "dependencies": {
+    "body-parser": "^1.8.3",
+    "express": "^4.9.4",
+    "mongoose": "^3.8.16",
+    "passport": "^0.2.1",
+    "passport-local": "^1.0.0"
+  }
+}
