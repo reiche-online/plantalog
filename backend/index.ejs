@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="de" ng-app="adminApp">
+<head>
+    <meta charset="UTF-8">
+    <title>plantalog - Admin</title>
+    <link rel="stylesheet" href="css/bootstrap.paper.css" />
+    <link rel="stylesheet" href="css/admin.css" />
+</head>
+<body>
+    <div class="navbar navbar-default">
+        <div class="navbar-header">
+            <a href="/admin/" class="navbar-brand">Plantalog</a>
+        </div>
+        <div class="navbar-collapse collapse navbar-responsive-collapse">
+            <ul class="nav navbar-nav">
+                <li><a href="#/create">Neue Pflanzes</a></li>
+                <li><a href="/admin/logout">Logout</a></li>
+            </ul>
+        </div>
+    </div>
+    <div class="container" style="margin-bottom: 200px;" ng-view >
+        <!-- Hier werden die Views durch Angular geladen -->
+    </div>
+    <script src="js/angular.js"></script>
+    <script src="js/angular.routing.js"></script>
+    <script src="js/angular.sanitize.js"></script>
+    <script src="js/jquery.js"></script>
+    <script src="js/bootstrap.js"></script>
+    <script src="js/plantalog-admin.js"></script>
+</body>
+</html>

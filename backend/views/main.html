@@ -1,0 +1,31 @@
+<div class="modal">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button aria-hidden="true" data-dismiss="modal" class="close" type="button" onclick="jQuery('.modal').hide();" >×</button>
+                <h4 class="modal-title">{{popupTitle}}</h4>
+            </div>
+            <div class="modal-body">
+                <p>{{popupText}}</p>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-primary" type="button" ng-click="delete(popupAction)" >{{popupButtonTitle}}</button>
+            </div>
+        </div>
+    </div>
+</div>
+<h1>Willkommen im Adminbereich</h1>
+<p>
+    Dies ist nur eine Alphaversion, im Rahmen der Lehrveranstaltung Verteilte Systeme an der BA-Dresden.<br/>
+    Umgesetzt von Marcus Reiche.
+</p>
+<h2>Liste aller Pflanzen</h2>
+<div class="row result list-group-item plantlist" ng-repeat="plant in plants">
+    <div class="col-xs-1"><img ng-src="{{plant.imgsrc}}" title="{{plant.name}}" alt="{{plant.name}}" ></div>
+    <div class="col-xs-1"><span class="name">{{plant.name}}</span></div>
+    <div class="col-xs-8"><span class="short_desc">{{plant.short_desc}}</span></div>
+    <div class="col-xs-2" style="text-align: right">
+        <a href="#/edit/{{plant.name}}"><img src="img/icons/edit.jpg" title="editieren" alt="editieren"></a>
+        <a href="" ng-click="askDelete(plant.name)" ><img src="img/icons/delete.jpg" title="löschen" alt="löschen"></a>
+    </div>
+</div>

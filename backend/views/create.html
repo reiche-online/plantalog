@@ -1,0 +1,297 @@
+<div class="modal">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button aria-hidden="true" data-dismiss="modal" class="close" type="button" onclick="jQuery('.modal').hide();" >×</button>
+                <h4 class="modal-title">{{popupText}}</h4>
+            </div>
+        </div>
+    </div>
+</div>
+<form class="form-horizontal" ng-submit="submit()">
+    <fieldset>
+        <input type="text" ng-model="oldName" style="display:none;" >
+        <legend>Allgemeine Informationen zur Pflanze</legend>
+        <div class="form-group">
+            <label class="col-lg-2 control-label" for="name">Name</label>
+            <div class="col-lg-10">
+                <input type="text" placeholder="Name" id="name" name="name" ng-model="name" class="form-control">
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-lg-2 control-label" for="desc">Beschreibung</label>
+            <div class="col-lg-10">
+                <textarea id="desc" rows="3" class="form-control" name="desc" ng-model="desc" ></textarea>
+                <span class="help-block">Eine längere Beschreibung der Pflanze</span>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-lg-2 control-label" for="short_desc">Kurzbeschreibung</label>
+            <div class="col-lg-10">
+                <input type="text" placeholder="Kurzbeschreibung" id="short_desc" ng-model="short_desc" name="short_desc" class="form-control">
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-lg-2 control-label">Lebensdauer</label>
+            <div class="col-lg-10">
+                <div class="radio">
+                    <label>
+                        <input type="radio" checked="" value="0" name="freeze" ng-model="freeze">
+                        <img title="Lebensdauer: einjährig" src="img/icons/no-freeze.jpg" >
+                    </label>
+                </div>
+                <div class="radio">
+                    <label>
+                        <input type="radio" value="1" name="freeze" ng-model="freeze">
+                        <img title="Lebensdauer: mehrjährig" src="img/icons/freeze.jpg" >
+                    </label>
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-lg-2 control-label">Standort</label>
+            <div class="col-lg-10">
+                <div class="radio">
+                    <label>
+                        <input type="radio" checked="" value="0" name="sun" ng-model="sun">
+                        <img title="Standort: Schatten" src="img/icons/sun0.jpg" >
+                    </label>
+                </div>
+                <div class="radio">
+                    <label>
+                        <input type="radio" value="1" name="sun" ng-model="sun">
+                        <img title="Standort: Halbschatten" src="img/icons/sun1.jpg" >
+                    </label>
+                </div>
+                <div class="radio">
+                    <label>
+                        <input type="radio" value="2" name="sun" ng-model="sun">
+                        <img title="Standort: Sonne" src="img/icons/sun2.jpg" >
+                    </label>
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-lg-2 control-label">Pflegeaufwand</label>
+            <div class="col-lg-10">
+                <div class="radio">
+                    <label>
+                        <input type="radio" checked="" value="0" name="difficulty" ng-model="difficulty">
+                        <img title="Pflegeaufwand: keiner" src="img/icons/dif0.jpg" >
+                    </label>
+                </div>
+                <div class="radio">
+                    <label>
+                        <input type="radio" value="1" name="difficulty" ng-model="difficulty">
+                        <img title="Pflegeaufwand: sehr wenig" src="img/icons/dif1.jpg" >
+                    </label>
+                </div>
+                <div class="radio">
+                    <label>
+                        <input type="radio" value="2" name="difficulty" ng-model="difficulty">
+                        <img title="Pflegeaufwand: wenig" src="img/icons/dif2.jpg" >
+                    </label>
+                </div>
+                <div class="radio">
+                    <label>
+                        <input type="radio" value="3" name="difficulty" ng-model="difficulty">
+                        <img title="Pflegeaufwand: normal" src="img/icons/dif3.jpg" >
+                    </label>
+                </div>
+                <div class="radio">
+                    <label>
+                        <input type="radio" value="4" name="difficulty" ng-model="difficulty">
+                        <img title="Pflegeaufwand: aufwendig" src="img/icons/dif4.jpg" >
+                    </label>
+                </div>
+                <div class="radio">
+                    <label>
+                        <input type="radio" value="5" name="difficulty" ng-model="difficulty">
+                        <img title="Pflegeaufwand: sehr aufwendig" src="img/icons/dif5.jpg" >
+                    </label>
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-lg-2 control-label">Wasserbedarf</label>
+            <div class="col-lg-10">
+                <div class="radio">
+                    <label>
+                        <input type="radio" checked="" value="1" name="water" ng-model="water">
+                        <img title="Wasserbedarf: niedrig" src="img/icons/water1.jpg" >
+                    </label>
+                </div>
+                <div class="radio">
+                    <label>
+                        <input type="radio" value="2" name="water" ng-model="water">
+                        <img title="Wasserbedarf: mittel" src="img/icons/water2.jpg" >
+                    </label>
+                </div>
+                <div class="radio">
+                    <label>
+                        <input type="radio" value="3" name="water" ng-model="water">
+                        <img title="Wasserbedarf: hoch" src="img/icons/water3.jpg" >
+                    </label>
+                </div>
+            </div>
+        </div>
+        <legend>Nährwerte der Pflanze</legend>
+        <div class="form-group">
+            <label class="col-lg-2 control-label" for="energy">Brennwert</label>
+            <div class="input-group">
+                <input type="text" placeholder="Brennwert" id="energy" name="energy" ng-model="energy" class="form-control">
+                <span class="input-group-addon"> in kJ</span>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-lg-2 control-label" for="calories">Kalorien</label>
+            <div class="input-group">
+                <input type="text" placeholder="Kalorien" id="calories" name="calories" ng-model="calories" class="form-control">
+                <span class="input-group-addon"> in kcal</span>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-lg-2 control-label" for="protein">Protein</label>
+            <div class="input-group">
+                <input type="text" placeholder="Protein" id="protein" name="protein" ng-model="protein" class="form-control">
+                <span class="input-group-addon"> in g</span>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-lg-2 control-label" for="carbs">Kohlenhydrate</label>
+            <div class="input-group">
+                <input type="text" placeholder="Kohlenhydrate" id="carbs" name="carbs" ng-model="carbs" class="form-control">
+                <span class="input-group-addon"> in g</span>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-lg-2 control-label" for="fat">Fett</label>
+            <div class="input-group">
+                <input type="text" placeholder="Fett" id="fat" name="fat" ng-model="fat" class="form-control">
+                <span class="input-group-addon"> in g</span>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-lg-2 control-label" for="vitamins">Vitamine & Co</label>
+            <div class="col-lg-10">
+                <input type="text" placeholder="Vitamine & Co" id="vitamins" name="vitamins" ng-model="vitamins" class="form-control">
+            </div>
+        </div>
+        <legend>Tipps für die Pflanze</legend>
+        <div class="form-group">
+            <label class="col-lg-2 control-label" for="tip1name">Tipp 1 Name</label>
+            <div class="col-lg-10">
+                <input type="text" placeholder="Tipp 1 Name" id="tip1name" name="tip1name" ng-model="tip1name" class="form-control">
+            </div>
+            <label class="col-lg-2 control-label" for="tip1desc">Tipp 1 Beschreibung</label>
+            <div class="col-lg-10">
+                <input type="text" placeholder="Tipp 1 Beschreibung" id="tip1desc" name="tip1desc" ng-model="tip1desc" class="form-control">
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-lg-2 control-label" for="tip2name">Tipp 2 Name</label>
+            <div class="col-lg-10">
+                <input type="text" placeholder="Tipp 2 Name" id="tip2name" name="tip2name" ng-model="tip2name" class="form-control">
+            </div>
+            <label class="col-lg-2 control-label" for="tip2desc">Tipp 2 Beschreibung</label>
+            <div class="col-lg-10">
+                <input type="text" placeholder="Tipp 2 Beschreibung" id="tip2desc" name="tip2desc" ng-model="tip2desc" class="form-control">
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-lg-2 control-label" for="tip3name">Tipp 3 Name</label>
+            <div class="col-lg-10">
+                <input type="text" placeholder="Tipp 3 Name" id="tip3name" name="tip3name" ng-model="tip3name" class="form-control">
+            </div>
+            <label class="col-lg-2 control-label" for="tip3desc">Tipp 3 Beschreibung</label>
+            <div class="col-lg-10">
+                <input type="text" placeholder="Tipp 3 Beschreibung" id="tip3desc" name="tip3desc" ng-model="tip3desc" class="form-control">
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-lg-2 control-label" for="tip4name">Tipp 4 Name</label>
+            <div class="col-lg-10">
+                <input type="text" placeholder="Tipp 4 Name" id="tip4name" name="tip4name" ng-model="tip4name" class="form-control">
+            </div>
+            <label class="col-lg-2 control-label" for="tip4desc">Tipp 4 Beschreibung</label>
+            <div class="col-lg-10">
+                <input type="text" placeholder="Tipp 4 Beschreibung" id="tip4desc" name="tip4desc" ng-model="tip4desc" class="form-control">
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-lg-2 control-label" for="tip5name">Tipp 5 Name</label>
+            <div class="col-lg-10">
+                <input type="text" placeholder="Tipp 5 Name" id="tip5name" name="tip5name" ng-model="tip5name" class="form-control">
+            </div>
+            <label class="col-lg-2 control-label" for="tip5desc">Tipp 5 Beschreibung</label>
+            <div class="col-lg-10">
+                <input type="text" placeholder="Tipp 5 Beschreibung" id="tip5desc" name="tip5desc" ng-model="tip5desc" class="form-control">
+            </div>
+        </div>
+        <legend>Rezept-Ideen</legend>
+        <div class="form-group">
+            <label class="col-lg-2 control-label" for="recipe1name">Rezept 1 Name</label>
+            <div class="col-lg-10">
+                <input type="text" placeholder="Rezept 1 Name" id="recipe1name" name="recipe1name" ng-model="recipe1name" class="form-control">
+            </div>
+            <label class="col-lg-2 control-label" for="recipe1link">Rezept 1 Link</label>
+            <div class="col-lg-10">
+                <input type="text" placeholder="Rezept 1 Link" id="recipe1link" name="recipe1link" ng-model="recipe1link" class="form-control">
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-lg-2 control-label" for="recipe2name">Rezept 2 Name</label>
+            <div class="col-lg-10">
+                <input type="text" placeholder="Rezept 2 Name" id="recipe2name" name="recipe2name" ng-model="recipe2name" class="form-control">
+            </div>
+            <label class="col-lg-2 control-label" for="recipe2link">Rezept 2 Link</label>
+            <div class="col-lg-10">
+                <input type="text" placeholder="Rezept 2 Link" id="recipe2link" name="recipe2link" ng-model="recipe2link" class="form-control">
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-lg-2 control-label" for="recipe3name">Rezept 3 Name</label>
+            <div class="col-lg-10">
+                <input type="text" placeholder="Rezept 3 Name" id="recipe3name" name="recipe3name" ng-model="recipe3name" class="form-control">
+            </div>
+            <label class="col-lg-2 control-label" for="recipe3link">Rezept 3 Link</label>
+            <div class="col-lg-10">
+                <input type="text" placeholder="Rezept 3 Link" id="recipe3link" name="recipe3link" ng-model="recipe3link" class="form-control">
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-lg-2 control-label" for="recipe4name">Rezept 4 Name</label>
+            <div class="col-lg-10">
+                <input type="text" placeholder="Rezept 4 Name" id="recipe4name" name="recipe4name" ng-model="recipe4name" class="form-control">
+            </div>
+            <label class="col-lg-2 control-label" for="recipe4link">Rezept 4 Link</label>
+            <div class="col-lg-10">
+                <input type="text" placeholder="Rezept 4 Link" id="recipe4link" name="recipe4link" ng-model="recipe4link" class="form-control">
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-lg-2 control-label" for="recipe5name">Rezept 5 Name</label>
+            <div class="col-lg-10">
+                <input type="text" placeholder="Rezept 5 Name" id="recipe5name" name="recipe5name" ng-model="recipe5name" class="form-control">
+            </div>
+            <label class="col-lg-2 control-label" for="recipe1link">Rezept 5 Link</label>
+            <div class="col-lg-10">
+                <input type="text" placeholder="Rezept 5 Link" id="recipe5link" name="recipe5link" ng-model="recipe5link" class="form-control">
+            </div>
+        </div>
+        <legend>Krankheiten</legend>
+        <div class="form-group">
+            <label class="col-lg-2 control-label" for="illnesss">Krankheiten</label>
+            <div class="col-lg-10">
+                <select class="form-control" id="illnesss" name="illnesss" multiple="" ng-model="illnesss">
+                    <option ng-repeat="illness in illnesses" >{{illness.name}}</option>
+                </select>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-lg-10 col-lg-offset-2">
+                <button style="padding:6px 60px;" class="btn btn-primary" type="submit">{{action}}</button>
+            </div>
+        </div>
+    </fieldset>
+</form>

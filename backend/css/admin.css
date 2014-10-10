@@ -1,0 +1,32 @@
+body {
+    background: url(/img/bg.jpg) repeat-x bottom fixed;
+    height: 100vh;
+}
+.clear {
+    clear: both;
+}
+
+.main-wrapper {
+    margin:60px auto;
+}
+.radio {
+    float:left;
+    margin-right:20px;
+}
+.radio input {
+    margin-top:11px;
+}
+legend {
+    margin-top:20px;
+}
+.plantlist span {
+    line-height: 50px;
+    display: inline-block;
+}
+.plantlist span.name {
+    font-weight: bold;
+}
+.plantlist span.short_desc {
+    overflow: hidden;
+    height:34px;
+}

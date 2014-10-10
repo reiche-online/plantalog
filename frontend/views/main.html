@@ -1,0 +1,35 @@
+<div class="row" style="text-align: center; margin-top:50px;">
+    <img src="img/logo-big.jpg" title="plantalog"/>
+</div>
+<div class="row" style="text-align: center; margin:20px 0;">
+    <input class="search" type="text" ng-model="query" ng-change="onQuery()">
+</div>
+<div class="row">
+    <a href="#/{{plant.name}}" class="list-group-item plant" ng-repeat="plant in plants | filter:query | orderBy:'name'">
+        <div class="col-md-3 col-xs-12">
+            <img ng-src="{{plant.imgsrc}}" title="{{plant.name}}" />
+            <h4>{{plant.name}}</h4>
+        </div>
+        <div class="col-md-6 col-xs-12">
+            {{plant.short_desc}}
+        </div>
+        <div class="col-md-3 col-xs-12">
+            <img ng-if="plant.freeze == 1" class="icon" title="Lebensdauer: mehrjährig" src="img/icons/freeze.jpg" />
+            <img ng-if="plant.freeze == 0" class="icon" title="Lebensdauer: einjährig" src="img/icons/no-freeze.jpg" />
+            <img ng-if="plant.sun == 0" class="icon" title="Standort: Schatten" src="img/icons/sun0.jpg" />
+            <img ng-if="plant.sun == 1" class="icon" title="Standort: Halbschatten" src="img/icons/sun1.jpg" />
+            <img ng-if="plant.sun == 2" class="icon" title="Standort: Sonne" src="img/icons/sun2.jpg" />
+            <img ng-if="plant.difficulty == 0" class="icon" title="Pflegeaufwand: keiner" src="img/icons/dif0.jpg" />
+            <img ng-if="plant.difficulty == 1" class="icon" title="Pflegeaufwand: sehr wenig" src="img/icons/dif1.jpg" />
+            <img ng-if="plant.difficulty == 2" class="icon" title="Pflegeaufwand: wenig" src="img/icons/dif2.jpg" />
+            <img ng-if="plant.difficulty == 3" class="icon" title="Pflegeaufwand: normal" src="img/icons/dif3.jpg" />
+            <img ng-if="plant.difficulty == 4" class="icon" title="Pflegeaufwand: aufwendig" src="img/icons/dif4.jpg" />
+            <img ng-if="plant.difficulty == 5" class="icon" title="Pflegeaufwand: sehr aufwendig" src="img/icons/dif5.jpg" />
+            <img ng-if="plant.water == 1" class="icon" title="Wasserbedarf: niedrig" src="img/icons/water1.jpg" />
+            <img ng-if="plant.water == 2" class="icon" title="Wasserbedarf: mittel" src="img/icons/water2.jpg" />
+            <img ng-if="plant.water == 3" class="icon" title="Wasserbedarf: hoch" src="img/icons/water3.jpg" />
+        </div>
+
+        <div class="clear"></div>
+    </a>
+</div>
