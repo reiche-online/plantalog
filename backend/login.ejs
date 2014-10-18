@@ -7,7 +7,23 @@
 </head>
 <body>
 <div class="container main-wrapper">
+
+
     <form class="form-horizontal" style="margin:0 auto; width:400px;" action="" method="post">
+        <span class="error">
+            <% if(error == 1) { %>
+                <div class="alert alert-dismissable alert-warning">
+                    <button data-dismiss="alert" class="close" type="button" onclick="jQuery('.alert').hide();">×</button>
+                    <h4>Dieser Nutzer existiert nicht.</h4>
+                </div>
+            <% } %>
+            <% if(error == 2) { %>
+                <div class="alert alert-dismissable alert-warning">
+                    <button data-dismiss="alert" class="close" type="button" onclick="jQuery('.alert').hide();">×</button>
+                    <h4>Das Passwort ist leider falsch.</h4>
+                </div>
+            <% } %>
+        </span>
         <fieldset>
             <legend>Login</legend>
             <div class="form-group">

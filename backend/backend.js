@@ -61,8 +61,7 @@ app.get('/admin/', function(req,res) {
  */
 
 app.get('/admin/login', function(req,res) {
-    res.render(__dirname + '/login' +
-    '.ejs');
+    res.render(__dirname + '/login.ejs', {error: req.query.error });
 });
 
 app.post('/admin/login', function(req,res){
@@ -71,9 +70,12 @@ app.post('/admin/login', function(req,res){
     if(req.body.username == "admin" && req.body.password == "admin") {
         req.session.login = true;
         res.redirect('/admin/');
-    }else {
+    }else if(req.body.username != "admin"){
         req.session.login = false;
-        res.redirect('/admin/login');
+        res.redirect('/admin/login?error=1');
+    }else if(req.body.password != "admin"){
+        req.session.login = false;
+        res.redirect('/admin/login?error=2');
     }
 });
 
